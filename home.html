@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+      .box{
+            height: 60vh;
+            width: 50vw;
+            background-color: rgb(44, 152, 206);
+            border-radius: 5px;
+           overflow: hidden;
+        }
+        .icon{
+       
+    }
+    
+
+    </style>
+</head>
+<body>
+    <div class="box">
+     <div><h4>{%location%},{%country%}</h4></div>
+    <div>
+        <p id="datedetails">wed|oct|10:49 am</p>
+    </div>
+     <div><h2>{%temp%}</h2></div>
+    <div><p>{%tempmin%}|{%tempmax%}</p></div>
+    </div>
+   
+</body>
+<script>
+    const days=["Mon","Tue","wed","thurs","fri","sat"];
+    const getDay=()=>{
+        const day=new Date();
+        let da=days[day.getDay()-1];
+        
+        return `${da}`;
+            }
+            getDay();
+            
+            const getTime=()=>{
+                const month=["jan","feb","mar","apr","may","june","july","aug","sep","oct","nov","dec"];
+       
+              const time=new Date();
+              let h=time.getHours();
+              if(h>12){
+                h-=12;
+                return `${month[time.getMonth()+1]}|${h}:${min} pm`
+              }
+            
+              console.log(h)
+
+              let min=time.getMinutes();
+              
+              return `${month[time.getMonth()+1]}|${h}:${min} am`
+            }
+            console.log(`${getDay()}|${getTime()}`)
+            const d1=document.getElementById("datedetails")
+            d1.innerHTML=`${getDay()}|${getTime()}`
+
+</script>
+</html>
